@@ -49,7 +49,14 @@ on_success = "back"
 # If you want to pass options to your program, a `--` separator
 # will be needed.
 [jobs.run]
-command = ["cargo", "run", "--color", "always", "--features", "bevy/dynamic"]
+command = [
+  "cargo",
+  "run",
+  "--color",
+  "always",
+  "--features",
+  "bevy/dynamic bevy/wayland",
+]
 need_stdout = true
 allow_warnings = true
 
