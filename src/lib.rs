@@ -1,4 +1,4 @@
-use bevy::{ecs::query::QueryEntityError, prelude::*};
+use bevy::prelude::*;
 
 #[derive(Component, Deref, DerefMut)]
 pub struct AnimationTimer(Timer);
