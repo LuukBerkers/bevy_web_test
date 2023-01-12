@@ -3,8 +3,23 @@ name = "bevy_web_test"
 version = "0.1.0"
 edition = "2021"
 
+[dependencies]
+bevy = { version = "0.9.1", default-features = false, features = [
+  "bevy_core_pipeline",
+  "bevy_sprite",
+  "bevy_asset",
+  "bevy_render",
+  "png",
+  "wayland",
+] }
+
 [profile.dev.package."*"]
 opt-level = 3
 
-[dependencies]
-bevy = "0.9.1"
+[profile.release]
+lto = true
+
+[profile.wasm-release]
+inherits = "release"
+codegen-units = 1
+opt-level = "z"

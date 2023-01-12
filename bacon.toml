@@ -49,13 +49,20 @@ on_success = "back"
 # If you want to pass options to your program, a `--` separator
 # will be needed.
 [jobs.run]
+command = ["cargo", "run", "--color", "always", "--features", "bevy/dynamic"]
+need_stdout = true
+allow_warnings = true
+
+[jobs.run-web]
 command = [
   "cargo",
   "run",
   "--color",
   "always",
-  "--features",
-  "bevy/dynamic bevy/wayland",
+  "--profile",
+  "wasm-release",
+  "--target",
+  "wasm32-unknown-unknown",
 ]
 need_stdout = true
 allow_warnings = true
@@ -71,3 +78,4 @@ c = "job:clippy"
 d = "job:doc-open"
 t = "job:test"
 r = "job:run"
+w = "job:run-web"
